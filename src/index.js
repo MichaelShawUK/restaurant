@@ -23,6 +23,7 @@ function createPageTemplate() {
   document.body.append(createNav(['HOME', 'MENU', 'CONTACT'], true));
   const content = document.createElement('div');
   content.setAttribute('id', 'content');
+  content.appendChild(homeContent());
   document.body.append(content);
 
   const links = document.querySelectorAll('nav li');
