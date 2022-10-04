@@ -1,6 +1,9 @@
 import './styles.css';
+import homeContent from './home.js';
+import contactContent from './contact.js';
+import menuContent from './menu.js';
 
-function createNav(navLinks = ['HOME', 'MENU', 'CONTACT']) {
+function createNav(navLinks, setId = false) {
 
   const nav = document.createElement('nav');
   const ul = document.createElement('ul');
@@ -9,41 +12,28 @@ function createNav(navLinks = ['HOME', 'MENU', 'CONTACT']) {
   for (let link of navLinks) {
     let navLink = li.cloneNode();
     navLink.append(link);
+    if (setId) navLink.setAttribute('id', link.toLowerCase());
     ul.append(navLink);
   }
-
   nav.append(ul);
   return nav;
-}
-
-function homeContent() {
-  const div = document.createElement('div');
-  const container = div.cloneNode();
-  const empty = div.cloneNode();
-  const homeInfo = div.cloneNode();
-  container.setAttribute('class', 'container');
-  empty.setAttribute('class', 'empty');
-  homeInfo.setAttribute('id', 'home-info');
-
-  const heading = document.createElement('h1');
-  const homeText = document.createElement('p');
-  const menuBtn = document.createElement('button');
-  heading.append('Buonissimo');
-  homeText.append(`Vestibulum maximus metus sed neque faucibus interdum. 
-                   Nunc quis sodales sem.`);
-  menuBtn.append('MENU');
-
-  homeInfo.append(heading, homeText, menuBtn);
-  container.append(empty, homeInfo);
-  return container;
 }
 
 function addContent(contentType) {
   const content = document.createElement('div');
   content.setAttribute('id', 'content');
-  content.append(createNav());
+  content.append(createNav(['HOME', 'MENU', 'CONTACT'], true));
   content.appendChild(contentType());
   document.body.appendChild(content);
 }
 
-addContent(homeContent);
+addContent(menuContent);
+
+function createPageTemplate() {
+  document.body.append(createNav(['HOME', 'MENU', 'CONTACT'], true));
+  const content = document.createElement('div');
+  content.setAttribute('id', 'content');
+  document.body.append(content);
+}
+
+

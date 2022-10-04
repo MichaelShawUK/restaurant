@@ -1,3 +1,19 @@
 h1 {
   color: red;
 }
+
+li {
+  background: green;
+  margin: 10px;
+  width: 150px;
+}
+
+li:hover {
+  background: yellow;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
