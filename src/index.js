@@ -19,21 +19,36 @@ function createNav(navLinks, setId = false) {
   return nav;
 }
 
-function addContent(contentType) {
-  const content = document.createElement('div');
-  content.setAttribute('id', 'content');
-  content.append(createNav(['HOME', 'MENU', 'CONTACT'], true));
-  content.appendChild(contentType());
-  document.body.appendChild(content);
-}
-
-addContent(menuContent);
-
 function createPageTemplate() {
   document.body.append(createNav(['HOME', 'MENU', 'CONTACT'], true));
   const content = document.createElement('div');
   content.setAttribute('id', 'content');
   document.body.append(content);
+
+  const links = document.querySelectorAll('nav li');
+  for (let link of links) {
+    link.addEventListener('click', addContent)
+  }
+} 
+
+function addContent(e) {
+
+  document.getElementById('content');
+
+  while (content.firstChild) {
+    content.removeChild(content.firstChild);
+  }
+  switch (e.target.id) {
+    case 'home':
+      content.appendChild(homeContent());
+      break;
+    case 'menu':
+      content.appendChild(menuContent());
+      break;
+    case 'contact':
+      content.appendChild(contactContent());
+      break;
+  }
 }
 
-
+createPageTemplate();

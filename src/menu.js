@@ -35,25 +35,27 @@ export default function menuContent() {
     'Orange Juice': '$3',
     'Coffee': '$4',
   }
-
-  const div = document.createElement('div');
-  const container = div.cloneNode();
-  // 
-  container.setAttribute('id', 'container');
-  // 
-  const sectionHeadings = document.createElement('h3');
   const menu = {'Appetizers': appetizers, 
                 'Burgers': burgers,
                 'Toppings': toppings,
                 'Milkshakes': milkshakes,
                 'Drinks': drinks};
+
+  const div = document.createElement('div');
+  const container = div.cloneNode();
+  container.setAttribute('id', 'container');
+  const sectionHeadings = document.createElement('h3');
+  
   for (let section in menu) {
+
     let menuSection = div.cloneNode();
     menuSection.setAttribute('id', section.toLowerCase());
     let sectionHeading = sectionHeadings.cloneNode();
     sectionHeading.append(section);
     menuSection.append(sectionHeading);
+
     for (let item in menu[section]) {
+      
       let itemAndPrice = div.cloneNode();
       itemAndPrice.setAttribute('class', 'menu-item');
       let items = div.cloneNode();
