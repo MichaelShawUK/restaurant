@@ -25,7 +25,7 @@ function createPageTemplate() {
   content.setAttribute('id', 'content');
   content.appendChild(homeContent());
   document.body.append(content);
-
+  
   const links = document.querySelectorAll('nav li');
   for (let link of links) {
     link.addEventListener('click', addContent)

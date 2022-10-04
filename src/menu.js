@@ -43,7 +43,7 @@ export default function menuContent() {
 
   const div = document.createElement('div');
   const container = div.cloneNode();
-  container.setAttribute('id', 'container');
+  container.setAttribute('class', 'menu container');
   const sectionHeadings = document.createElement('h3');
   
   for (let section in menu) {
@@ -55,7 +55,7 @@ export default function menuContent() {
     menuSection.append(sectionHeading);
 
     for (let item in menu[section]) {
-      
+
       let itemAndPrice = div.cloneNode();
       itemAndPrice.setAttribute('class', 'menu-item');
       let items = div.cloneNode();

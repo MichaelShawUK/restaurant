@@ -1,19 +1,121 @@
-h1 {
-  color: red;
+:root {
+  --pink: rgb(211, 62, 191);
+  --off-black : rgb(34, 34, 34);
 }
 
+@font-face {
+  font-family: 'caveat';
+  src: url('../font/Caveat-VariableFont_wght.ttf');
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'caveat';
+}
+
+
+
 li {
-  background: green;
-  margin: 10px;
-  width: 150px;
+  /* background: green; */
 }
 
 li:hover {
-  background: yellow;
+  background: var(--pink);
+  color: var(--off-black);
 }
 
 .menu-item {
   display: flex;
   justify-content: space-between;
   width: 200px;
+}
+
+body {
+  background-image: url('../img/bg.jpg');
+  background-attachment: fixed;
+}
+
+
+/* NAV STYLING */
+nav li {
+  list-style-type: none;
+  text-align: center;
+  padding: 20px;
+  color:var(--pink);
+  font-weight: bold;
+}
+nav ul {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  cursor: pointer;
+}
+nav {
+  display: grid;
+  justify-content: center;
+  background:var(--off-black);
+  /* box-shadow: inset 0px 0px 20px var(--pink); */
+}
+
+/* HOME STYLING */
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#home-info {
+  display: grid;
+  align-content: center;
+  min-height: 550px;
+  height: calc(100vh - 60px);
+  background: rgba(255, 255, 255, 0.692);
+  padding: 0 20px;
+  box-shadow: -2px 0px 5px rgb(228, 228, 228);
+  text-shadow: 4px 4px 10px black;
+}
+.empty {
+  background: rgba(99, 99, 99, 0.4);
+}
+
+#home-info button {
+  width: max-content;
+  padding: 20px;
+  font-weight: bold;
+  background: var(--off-black);
+  border: none;
+  color: var(--pink);
+  font-size: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#home-info button:hover {
+  color:var(--off-black);
+  background:var(--pink);
+  box-shadow: 2px 2px 5px black;
+}
+h1 {
+  font-size: 80px;
+  text-shadow: 1px 3px var(--pink);
+}
+#home-info p {
+  margin: 10px 0;
+  font-size: 40px;
+}
+
+/* MENU STYLING */
+.menu h3 {
+  /* background: var(--pink);
+  background-position: top 20px; */
+  background: linear-gradient(red, red, red);
+  width: max-content;
+  background-position: 50% 20%;
+  margin: 50px;
+}
+
+
+/* CONTACT STYLING */
+.contact input[type] {
+  font: arial;
 }

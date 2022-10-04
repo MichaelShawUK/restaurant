@@ -3,7 +3,7 @@ export default function homeContent() {
   const container = div.cloneNode();
   const empty = div.cloneNode();
   const homeInfo = div.cloneNode();
-  container.setAttribute('class', 'container');
+  container.setAttribute('class', 'home container');
   empty.setAttribute('class', 'empty');
   homeInfo.setAttribute('id', 'home-info');
 
@@ -14,6 +14,7 @@ export default function homeContent() {
   homeText.append(`Vestibulum maximus metus sed neque faucibus interdum. 
                    Nunc quis sodales sem.`);
   menuBtn.append('MENU');
+  menuBtn.setAttribute('id', 'menu-btn');
 
   homeInfo.append(heading, homeText, menuBtn);
   container.append(empty, homeInfo);
