@@ -1,7 +1,4 @@
-// console.log('Changing files whilst running webpack watch');
-
-const content = document.createElement('div');
-content.setAttribute('id', 'content');
+import './styles.css';
 
 function createNav(navLinks = ['HOME', 'MENU', 'CONTACT']) {
 
@@ -19,9 +16,34 @@ function createNav(navLinks = ['HOME', 'MENU', 'CONTACT']) {
   return nav;
 }
 
+function homeContent() {
+  const div = document.createElement('div');
+  const container = div.cloneNode();
+  const empty = div.cloneNode();
+  const homeInfo = div.cloneNode();
+  container.setAttribute('class', 'container');
+  empty.setAttribute('class', 'empty');
+  homeInfo.setAttribute('id', 'home-info');
 
+  const heading = document.createElement('h1');
+  const homeText = document.createElement('p');
+  const menuBtn = document.createElement('button');
+  heading.append('Buonissimo');
+  homeText.append(`Vestibulum maximus metus sed neque faucibus interdum. 
+                   Nunc quis sodales sem.`);
+  menuBtn.append('MENU');
 
-content.append(createNav());
+  homeInfo.append(heading, homeText, menuBtn);
+  container.append(empty, homeInfo);
+  return container;
+}
 
-document.body.appendChild(content);
+function addContent(contentType) {
+  const content = document.createElement('div');
+  content.setAttribute('id', 'content');
+  content.append(createNav());
+  content.appendChild(contentType());
+  document.body.appendChild(content);
+}
 
+addContent(homeContent);
