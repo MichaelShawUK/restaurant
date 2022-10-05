@@ -1,10 +1,8 @@
 import './styles.css';
-import homeContent from './home.js';
 import contactContent from './contact.js';
 import menuContent from './menu.js';
 
 function createNav(navLinks, setId = false) {
-
   const nav = document.createElement('nav');
   const ul = document.createElement('ul');
   const li = document.createElement('li');
@@ -17,6 +15,30 @@ function createNav(navLinks, setId = false) {
   }
   nav.append(ul);
   return nav;
+}
+
+function homeContent() {
+  const div = document.createElement('div');
+  const container = div.cloneNode();
+  const empty = div.cloneNode();
+  const homeInfo = div.cloneNode();
+  container.setAttribute('class', 'home container');
+  empty.setAttribute('class', 'empty');
+  homeInfo.setAttribute('id', 'home-info');
+
+  const heading = document.createElement('h1');
+  const homeText = document.createElement('p');
+  const menuBtn = document.createElement('button');
+  heading.append('Buonissimo');
+  homeText.append(`Vestibulum maximus metus sed neque faucibus interdum. 
+                   Nunc quis sodales sem.`);
+  menuBtn.append('MENU');
+  menuBtn.setAttribute('id', 'menu-btn');
+  menuBtn.addEventListener('click', addContent)
+
+  homeInfo.append(heading, homeText, menuBtn);
+  container.append(empty, homeInfo);
+  return container;
 }
 
 function createPageTemplate() {
@@ -33,13 +55,12 @@ function createPageTemplate() {
 } 
 
 function addContent(e) {
-
   document.getElementById('content');
 
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }
-  switch (e.target.id) {
+  switch (e.target.innerText.toLowerCase()) {
     case 'home':
       content.appendChild(homeContent());
       break;
@@ -53,3 +74,4 @@ function addContent(e) {
 }
 
 createPageTemplate();
+

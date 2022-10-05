@@ -50,6 +50,7 @@ export default function menuContent() {
 
     let menuSection = div.cloneNode();
     menuSection.setAttribute('id', section.toLowerCase());
+    menuSection.setAttribute('class', 'menu-section');
     let sectionHeading = sectionHeadings.cloneNode();
     sectionHeading.append(section);
     menuSection.append(sectionHeading);
