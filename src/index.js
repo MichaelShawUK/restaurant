@@ -42,6 +42,8 @@ function homeContent() {
 }
 
 function createPageTemplate() {
+  const title = document.querySelector('title');
+  title.textContent = 'Restaurant';
   document.body.append(createNav(['HOME', 'MENU', 'CONTACT'], true));
   const content = document.createElement('div');
   content.setAttribute('id', 'content');
